@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { dbService, storageService } from "fbase";
+import { dbService } from "fbase";
 import {
     collection,
     onSnapshot,
     query,
     orderBy,
-
 } from "firebase/firestore";
 import Nweet from "components/Nweet";
 import NweetFactory from "components/NweetFactory"
@@ -14,15 +13,24 @@ const Home = ({ userObj }) => {
     const [nweets, setNweets] = useState([]);
 
     useEffect(() => {
+        // Create a reference to the nweets collection
+        const nweetsRef =  collection(dbService, "nweets")
+        // create a query against the collection
         const q = query(
-            collection(dbService, "nweets"),
+            nweetsRef,
             orderBy("createdAt", "desc")
         );
+
         onSnapshot(q, (snapshot) => {
-            const nweetArr = snapshot.docs.map((doc) => ({
+            console.log(snapshot)
+            console.log(snapshot.docs)
+            const nweetArr = snapshot.docs.map((doc) =>{ 
+                return({
                 id: doc.id,
                 ...doc.data(),
-            }));
+            })
+        });
+
             setNweets(nweetArr);
         });
     }, []);

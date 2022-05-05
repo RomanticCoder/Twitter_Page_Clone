@@ -12,8 +12,14 @@ const Nweet = ({ nweetObj, isOwner }) => {
     const onDeleteClick = async () => {
         const ok = window.confirm("Are you sure you want to delete this nweet?");
         if (ok) {
-            await deleteDoc(doc(dbService, "nweets", `${nweetObj.id}`));
-            await deleteObject(ref(storageService, nweetObj.attachmentUrl));
+            // deleteDoc() : delete the document referred to by the specified document reference
+            const docRef = doc(dbService, "nweets", `${nweetObj.id}`)
+            await deleteDoc(docRef);
+
+            // create a reference to the file to delete
+            const imageRef = ref(storageService, nweetObj.attachmentUrl)
+            // delete the file
+            await deleteObject(imageRef);
         }
     };
 
@@ -21,7 +27,8 @@ const Nweet = ({ nweetObj, isOwner }) => {
 
     const onSubmit = async (event) => {
         event.preventDefault();
-        await updateDoc(doc(dbService, "nweets", `${nweetObj.id}`), {
+        const docRef = doc(dbService, "nweets", `${nweetObj.id}`);
+        await updateDoc(docRef, {
             text: newNweet,
         })
         setEditing(false);

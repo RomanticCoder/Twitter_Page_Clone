@@ -1,14 +1,36 @@
-[] fbase
+forked from: https://github.com/keinn51/Twitter_Page_Clone
+
+[x] fbase
 
 -components 
-[] app
-[] authform
-[] navigation
-[] nweet
-[] nweetfactory
-[] router
+[x] app
+[x] authform
+[x] navigation
+[x] nweet
+[ ~ ] nweetfactory
+[x] router
 
 -routes
-[] auth
+[x] auth
 [] home
-[] profile
+[x] profile
+
+## still don't know
+- onFileChange - NweetFactory
+- onSnapShot - useEffect - Home
+
+## router
+https://github.com/remix-run/react-router/blob/main/docs/upgrading/v5.md
+
+
+# redirect
+https://gist.github.com/mjackson/b5748add2795ce7448a366ae8f8ae3bb
+
+
+## file reader
+https://developer.mozilla.org/ko/docs/Web/API/FileReader
+https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload
+
+
+## google api credentials console
+https://console.cloud.google.com/apis/credentials

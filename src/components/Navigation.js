@@ -4,7 +4,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-const Navigation = ({ userObj }) => (
+const Navigation = ({ userObj }) => {
+    console.log("navigation.js")
+return (
     <nav>
         <ul style={{ display: "flex", justifyContent: "center", marginTop: 50 }}>
             <li>
@@ -33,5 +35,6 @@ const Navigation = ({ userObj }) => (
             </li>
         </ul>
     </nav>
-);
+)
+};
 export default Navigation;

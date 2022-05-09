@@ -1,5 +1,5 @@
 import React from "react";
-import { authService } from "fbase"
+import { authService } from "../fbase"
 import {
   GoogleAuthProvider,
   GithubAuthProvider,
@@ -7,7 +7,7 @@ import {
   signInWithPopup,
   signInWithRedirect
 } from "firebase/auth";
-import AuthForm from "components/AuthForm";
+import AuthForm from "../components/AuthForm";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTwitter,

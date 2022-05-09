@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { dbService } from "fbase";
+import { dbService } from "../fbase";
 import {
     collection,
     onSnapshot,
     query,
     orderBy,
 } from "firebase/firestore";
-import Nweet from "components/Nweet";
-import NweetFactory from "components/NweetFactory"
+import Nweet from "../components/Nweet";
+import NweetFactory from "../components/NweetFactory"
 
 const Home = ({ userObj }) => {
     const [nweets, setNweets] = useState([]);
